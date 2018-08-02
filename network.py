@@ -17,9 +17,11 @@ a = tf.matmul(x, w1)
 y = tf.matmul(a, w2)
 
 # 定义损失函数 交叉熵
-# reduce_mean 计算张量的各个维度上的元素的平均值。
-# clip_by_value将tensor进行范围限制的函数。 1e-10表示1*10的负十次方
+# reduce_mean 计算张量的各个维度上的元素的平均值，整个矩阵做平均。
+# clip_by_value将tensor进行范围限制的函数，避免了log0。 1e-10表示1*10的负十次方
+# y_表示正确结果，y表示预测结果
 cross_entropy = -tf.reduce_mean(y_ * tf.log(tf.clip_by_value(y, 1e-10, 1.0)))
+
 # 学习率
 learning_rate = 0.001
 # 优化方法最小化损失函数，采用的优化器是AdamOptimizer

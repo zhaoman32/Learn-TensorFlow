@@ -21,7 +21,6 @@ w2 = tf.zeros([3, 3])
 w3 = tf.fill([5, 5], 8)
 w4 = w3 * 2
 
-
 with tf.Session() as sess:
     init = tf.global_variables_initializer()
     sess.run(init)
@@ -30,3 +29,5 @@ with tf.Session() as sess:
     print(sess.run(w2))
     print(sess.run(w3))
     print(sess.run(w4))
+
+
